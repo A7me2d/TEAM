@@ -1,0 +1,343 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: rgb(255, 127, 214);
+  color: #fff;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  direction: rtl;
+  /* background-color: #f4f4f4; */
+  background-image: url(../imgs/3516804.jpg);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.schedule-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.year {
+  margin-bottom: 40px;
+}
+
+.section {
+  background-color: #fafafa;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border-left: 5px solid #007BFF;
+}
+
+.section h3 {
+  margin-top: 0;
+  color: #007BFF;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  font-size: 18px;
+}
+
+ul li {
+  background-color: #e9ecef;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+ul li:hover {
+  background-color: #d6d6d6;
+  transform: translateY(-2px);
+}
+
+#weekly-schedule {
+  margin-top: 30px;
+}
+
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: bold;
+}
+
+#subject-list {
+  max-width: 100%;
+}
+
+#subject-list h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+#subject-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#subject-list li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+}
+
+#schedule-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#schedule-dialog h3 {
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+
+#schedule-dialog label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#schedule-dialog select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#schedule-dialog button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+#schedule-dialog button:hover {
+  background-color: #0056b3;
+}
+
+#schedule-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+  overflow: hidden;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f4f4f4;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.dialog-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.dialog-close {
+  font-size: 34px;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.dialog-close:hover {
+  color: #007BFF;
+  transform: rotate(90deg);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #555;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+/* 
+button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.3s;
+} */
+
+/* button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+} */
+
+/* button:active {
+  transform: translateY(1px);
+} */
+
+#save-schedule {
+  background-color: #28a745;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#save-schedule:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+#save-schedule:active {
+  transform: translateY(1px);
+}
+
+/* .section-content {
+  display: none; 
+} */
+
+
+.custom-dropdown-btn {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.custom-dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.custom-dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.custom-dropdown-menu li:hover {
+  background-color: #f8f9fa; /* لون خلفية عند التمرير */
+}
+
+#add-doctor {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+#displaySection {
+  transition: all 0.3s ease;
+  display: none; /* إخفاء القسم في البداية */
+}
+
+.show-display {
+  display: block; /* إظهار القسم عند اختيار الدكتور */
+}
+
+
+
+.room-input {
+  width: 100%; /* ملء عرض الخلية */
+  padding: 5px; /* إضافة حواف داخلية */
+  margin-top: 5px; /* إضافة مسافة بين المادة والإدخال */
+  border: 1px solid #ccc; /* لون الحدود */
+  border-radius: 4px; /* زوايا مستديرة */
+  font-size: 14px; /* حجم الخط */
+}
+
+.room-input:focus {
+  border-color: #007bff; /* تغيير لون الحدود عند التركيز */
+  outline: none; /* إزالة الحدود الافتراضية */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* تأثير ظل */
+}
+
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700,800,900" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" href="./assets/imgs/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>تسجيل الدخول</title>
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      cursor: pointer;
+    }
+
+    #error {
+      color: red;
+      margin-top: 15px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex justify-content-center z-3 fixed-top">
+    <h6 class="text-light fw-bold" href="#">فريق الجدول </h6>
+</nav>
+
+  <div class="container">
+    <h2>تسجيل الدخول</h2>
+    <form id="loginForm">
+      <label for="email">البريد الإلكتروني:</label>
+      <input type="email" id="email" placeholder="ادخل البريد الإلكتروني" required>
+
+      <label for="password">كلمة المرور:</label>
+      <input type="password" id="password" placeholder="ادخل كلمة المرور" required>
+
+      <button type="submit">دخول</button>
+    </form>
+    <p id="error">بيانات الدخول غير صحيحة!</p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const hashedPassword = CryptoJS.SHA256(password).toString();
+
+      if (email === 'a@gmail.com' && hashedPassword === 'f55ff16f66f43360266b95db6f8fec01d76031054306ae4a4b380598f6cfd114') {
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('error').style.display = 'block';
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+
+</body>
+
+</html>
