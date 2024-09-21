@@ -28,50 +28,65 @@ function populateDoctorList() {
 // Function to display data for the specified ID
 // تحديث displayData لإضافة حقول إدخال
 function displayData(id) {
-    const item = data.find(d => d.id === id);
-    const subjectTitle = document.getElementById('subject-title');
-    const scheduleTableBody = document.querySelector('#schedule-table tbody');
+  const item = data.find(d => d.id === id);
+  const subjectTitle = document.getElementById('subject-title');
+  const scheduleTableBody = document.querySelector('#schedule-table tbody');
 
-    // تفريغ الجدول قبل ملئه
-    scheduleTableBody.innerHTML = '';
+  // تفريغ الجدول قبل ملئه
+  scheduleTableBody.innerHTML = '';
 
-    if (item) {
-      subjectTitle.textContent = item.subject;
+  if (item) {
+    subjectTitle.textContent = item.subject;
 
-      item.schedule.forEach(schedule => {
-        const row = document.createElement('tr');
-        const dayCell = document.createElement('td');
-        dayCell.textContent = schedule.day;
-        row.appendChild(dayCell);
+    item.schedule.forEach(schedule => {
+      const row = document.createElement('tr');
+      const dayCell = document.createElement('td');
+      dayCell.textContent = schedule.day;
+      row.appendChild(dayCell);
 
-        schedule.times.forEach((time, index) => {
-          const cell = document.createElement('td');
-          
-          // حقل إدخال لاسم المادة
-          const inputMaterial = document.createElement('input');
-          inputMaterial.type = 'text';
-          inputMaterial.value = time.material; // قيمة اسم المادة
-          inputMaterial.className = 'material-input form-control'; // تحسين الشكل
-          inputMaterial.placeholder = 'اسم المادة';
-          
-          // حقل إدخال لرقم الغرفة
-          const inputRoom = document.createElement('input');
-          inputRoom.type = 'text';
-          inputRoom.value = time.room; // قيمة رقم الغرفة
-          inputRoom.className = 'room-input form-control'; // تحسين الشكل
-          inputRoom.placeholder = 'رقم الغرفة';
+      schedule.times.forEach((time, index) => {
+        const cell = document.createElement('td');
 
-          // إضافة حقول الإدخال إلى الخلية
-          cell.appendChild(inputMaterial);
-          cell.appendChild(inputRoom);
-          row.appendChild(cell);
-        });
+        // عرض المادة كـ نص
+        const materialText = document.createElement('span');
+        materialText.textContent = time.material;
+        
+        // عرض الغرفة كـ نص
+        const roomText = document.createElement('span');
+        if (time.room) {
+          roomText.textContent = ` (غرفة: ${time.room})`;
+        }else {
+          roomText.textContent = '';
+        }
+        // roomText.textContent = ` (غرفة: ${time.room})`;
 
-        scheduleTableBody.appendChild(row);
+        // حقل إدخال لاسم المادة (مخفي افتراضيًا)
+        const inputMaterial = document.createElement('input');
+        inputMaterial.type = 'text';
+        inputMaterial.value = time.material;
+        inputMaterial.className = 'material-input form-control hidden'; // مخفي
+        inputMaterial.placeholder = 'اسم المادة';
+        
+        // حقل إدخال لرقم الغرفة (مخفي افتراضيًا)
+        const inputRoom = document.createElement('input');
+        inputRoom.type = 'text';
+        inputRoom.value = time.room;
+        inputRoom.className = 'room-input form-control hidden'; // مخفي
+        inputRoom.placeholder = 'رقم الغرفة';
+
+        // إضافة النصوص الثابتة وحقل الإدخال إلى الخلية
+        cell.appendChild(materialText);
+        cell.appendChild(roomText);
+        cell.appendChild(inputMaterial);
+        cell.appendChild(inputRoom);
+        row.appendChild(cell);
       });
-    } else {
-      subjectTitle.textContent = 'لا توجد بيانات لهذا الرقم.';
-    }
+
+      scheduleTableBody.appendChild(row);
+    });
+  } else {
+    subjectTitle.textContent = 'لا توجد بيانات لهذا الرقم.';
+  }
 }
 
 
@@ -108,6 +123,7 @@ function displayData(id) {
       }
   
       updatedSchedule.push({ day, times });
+      // window.location.reload();
     });
   
     const body = {
@@ -226,3 +242,25 @@ function deleteDoctor() {
     alert('يرجى إدخال اسم الدكتور.');
   }
 }
+
+
+// عند الضغط على زر "تعديل"
+document.getElementById('edit-schedule').addEventListener('click', function() {
+  // إخفاء النصوص الثابتة وإظهار الحقول القابلة للتعديل
+  const materialInputs = document.querySelectorAll('.material-input');
+  const roomInputs = document.querySelectorAll('.room-input');
+  const materialTexts = document.querySelectorAll('span');
+
+  materialInputs.forEach(input => {
+    input.classList.remove('hidden'); // إظهار حقول الإدخال
+  });
+
+  roomInputs.forEach(input => {
+    input.classList.remove('hidden'); // إظهار حقول الإدخال
+  });
+
+  materialTexts.forEach(text => {
+    text.style.display = 'none'; // إخفاء النصوص الثابتة
+  });
+});
+

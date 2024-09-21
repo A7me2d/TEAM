@@ -278,12 +278,33 @@ button {
 }
 
 #save-schedule:hover {
-  background-color: #218838;
-  transform: translateY(-2px);
+  background-color: #6ca979;
+  /* transform: translateY(-2px); */
 }
 
 #save-schedule:active {
-  transform: translateY(1px);
+  /* transform: translateY(1px); */
+}
+#edit-schedule {
+  background-color: #0822a3;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  /* transition: background-color 0.3s, transform 0.3s; */
+}
+
+#edit-schedule:hover {
+  background-color: #827ec0;
+  /* transform: translateY(-2px); */
+}
+
+#edit-schedule:active {
+  /* transform: translateY(1px); */
 }
 
 /* .section-content {
@@ -293,20 +314,46 @@ button {
 
 .custom-dropdown-btn {
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 20px;
 }
 
 .custom-dropdown-menu {
-  max-height: 200px;
+  max-height: 400px;
   overflow-y: auto;
 }
 
 .custom-dropdown-menu li {
-  padding: 10px 20px;
+  padding: 5px 50px;
 }
 
+.dropdown-item {
+  cursor: pointer;
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #000000;
+  /* background-color: palegreen; */
+}
+
+.dropdown-item:hover{
+  color: #000000 !important;
+  background-color:transparent ;
+}
+
+.dropdown-item ul li{
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #000000;
+}
+
+ul li:hover{
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #000000;
+  background-color: rgb(22, 47, 87);
+  transform: none !important;
+}
 .custom-dropdown-menu li:hover {
-  background-color: #f8f9fa; /* لون خلفية عند التمرير */
+  background-color: #5e7790;
 }
 
 #add-doctor {
@@ -340,4 +387,8 @@ button {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* تأثير ظل */
 }
 
+
+.hidden {
+  display: none;
+}
 
