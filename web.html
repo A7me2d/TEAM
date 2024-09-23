@@ -74,7 +74,10 @@
           <button id="save-schedule" class="btn btn-success m-3">حفظ الجدول</button>
           <button id="edit-schedule" class="btn btn-primary m-3">تعديل الجدول</button>
         </div>
-
+        <div class="text-center mt-3">
+          <button class="btn btn-primary" id="download-pdf">تنزيل الجدول كـ PDF</button>
+        </div>
+        
         <h2 id="subject-title"></h2>
         <div class="schedule-content text-center">
           <div class="table-container">
@@ -159,6 +162,17 @@
 
   <script src="./assets/js/bootstrap.bundle.js"></script>
   <script src="./assets/js/script.js"></script>
+<!-- مكتبة jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- مكتبة autoTable -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf-arabic/dist/jspdf-arabic.min.js"></script>
+
 </body>
 
 </html>

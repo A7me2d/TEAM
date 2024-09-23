@@ -266,3 +266,24 @@ document.getElementById('edit-schedule').addEventListener('click', function() {
   });
 });
 
+
+document.getElementById('download-pdf').addEventListener('click', function() {
+  const { jsPDF } = window.jspdf;
+  
+  const doctorName = document.getElementById('subject-title').textContent;
+
+  const tableElement = document.getElementById('schedule-table');
+
+  // تحويل العنصر إلى صورة باستخدام html2canvas
+  html2canvas(tableElement, {
+      scale: 2 // زيادة الدقة
+  }).then(function(canvas) {
+      const imgData = canvas.toDataURL('image/png'); // تحويل الصورة إلى بيانات بصيغة PNG
+      const pdf = new jsPDF();
+
+      // إضافة الصورة إلى ملف PDF
+      pdf.addImage(imgData, 'PNG', 10, 20, 190, 0); // ضبط الأبعاد حسب الصفحة
+
+      pdf.save(`${doctorName}_schedule.pdf`);
+  });
+});
