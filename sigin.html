@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <title>HTR</title>
+</head>
+<style>
+    /* styles.css */
+
+/* ضبط خصائص الصفحة العامة */
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+} */
+
+/* تنسيق الحاوية */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق العناوين */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* تنسيق حقول الإدخال */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+/* تنسيق الجدول */
+table {
+    width: 100%;
+    border-collapse: collapse; /* دمج حدود الخلايا */
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px; /* زيادة المسافة داخل الخلايا */
+    text-align: center; /* توسيط النص داخل الخلايا */
+    border: 1px solid #ddd; /* حدود خفيفة للخلايا */
+}
+
+th {
+    background-color: #28a745; /* لون خلفية لرأس الجدول */
+    color: white; /* لون النص لرأس الجدول */
+}
+
+td {
+    background-color: #f9f9f9; /* لون خلفية للخلايا */
+}
+
+/* تنسيق قسم النتائج */
+#results {
+    margin-top: 20px;
+    padding: 15px; /* زيادة المسافة داخل قسم النتائج */
+    background-color: #e7f4e4;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center; /* توسيط النص */
+    font-size: 18px; /* زيادة حجم الخط */
+}
+
+
+/* تنسيق الزر */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* تنسيق قسم النتائج */
+#results {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e7f4e4;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+}
+
+    </style>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex justify-content-center z-3 fixed-top">
+        <h6 class="text-light fw-bold" href="#">فريق الجدول </h6>
+    </nav>
+    <div class="display vh-100 d-flex justify-content-center w-100 align-items-center">
+        <div class="container">
+            <h2>   ممكن البريد لعرض تفاصيل الجدول</h2>
+            <input type="text" id="email-input" placeholder="أدخل البريد الإلكتروني">
+            <input type="password" id="password-input" placeholder="أدخل كلمة المرور">
+            <button id="search-button">بحث</button>
+        
+            <div id="results"></div>
+            
+            <div id="account-name" style="font-size: 24px; font-weight: bold; margin-top: 20px; text-align: center;"></div> <!-- إضافة مكان عرض اسم الحساب -->
+        
+            <table id="schedule-table">
+                <thead>
+                    <tr>
+                        <th>اليوم</th>
+                        <th>9:00 - 10:30</th>
+                        <th>10:40 - 12:10</th>
+                        <th>12:30 - 2:00</th>
+                        <th>2:10 - 3:40</th>
+                        <th>3:50 - 5:20</th>
+                        <th>5:30 - 7:00</th>
+                    </tr>
+                </thead>
+                <tbody class="fw-bold fa-2x">
+                    <tr>
+                        <td>السبت</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>الأحد</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>الإثنين</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>الثلاثاء</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>الأربعاء</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>الخميس</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+    <footer class="bg-dark fixed-bottom text-light text-center py-3">
+        <p>Ahmed Hany &copy; Copyright 2024</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="./assets/js/script3.js"></script>
+</body>
+</html>

@@ -84,6 +84,22 @@
       text-align: center;
       display: none;
     }
+    #login-link{
+      margin-top: 10px;
+      border-top: #000000 2px solid;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      font-size: 20px;
+    }
+    #login-link:hover{
+      color: #0056b3;
+      cursor: pointer;
+
+    }
   </style>
 </head>
 
@@ -93,7 +109,8 @@
 </nav>
 
   <div class="container">
-    <h2>تسجيل الدخول</h2>
+    <h2>تسجيل الدخول اعضاء الجدول</h2>
+    
     <form id="loginForm">
       <label for="email">البريد الإلكتروني:</label>
       <input type="email" id="email" placeholder="ادخل البريد الإلكتروني" required>
@@ -104,7 +121,13 @@
       <button type="submit">دخول</button>
     </form>
     <p id="error">بيانات الدخول غير صحيحة!</p>
+    <a class="text-primary text-center fw-bold" id="login-link" href="./sigin.html">عشان تشوف الجدول </a>
   </div>
+
+  <footer class="bg-dark fixed-bottom text-light text-center py-3">
+    <p>Ahmed Hany &copy; Copyright 2024</p>
+</footer>
+
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
