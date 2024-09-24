@@ -120,7 +120,7 @@
 
       <button type="submit">دخول</button>
     </form>
-    <p id="error">بيانات الدخول غير صحيحة!</p>
+    <p id="error">ممنوع الدخول   !</p>
     <a class="text-primary text-center fw-bold" id="login-link" href="./sigin.html">عشان تشوف الجدول </a>
   </div>
 
@@ -128,23 +128,7 @@
     <p>Ahmed Hany &copy; Copyright 2024</p>
 </footer>
 
-
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      const hashedPassword = CryptoJS.SHA256(password).toString();
-
-      if (email === 'a@gmail.com' && hashedPassword === 'f55ff16f66f43360266b95db6f8fec01d76031054306ae4a4b380598f6cfd114') {
-        window.location.href = 'web.html';
-      } else {
-        document.getElementById('error').style.display = 'block';
-      }
-    });
-  </script>
+  <script src="./assets/js/script4.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 
 </body>
