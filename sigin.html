@@ -7,17 +7,7 @@
     <title>HTR</title>
 </head>
 <style>
-    /* styles.css */
 
-/* ضبط خصائص الصفحة العامة */
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-} */
-
-/* تنسيق الحاوية */
 .container {
     max-width: 1600px;
     margin: 0 auto;
@@ -65,7 +55,6 @@ td {
     background-color: #f9f9f9; /* لون خلفية للخلايا */
 }
 
-/* تنسيق قسم النتائج */
 #results {
     margin-top: 20px;
     padding: 15px; /* زيادة المسافة داخل قسم النتائج */
@@ -77,7 +66,6 @@ td {
 }
 
 
-/* تنسيق الزر */
 button {
     width: 100%;
     padding: 10px;
@@ -93,7 +81,6 @@ button:hover {
     background-color: #218838;
 }
 
-/* تنسيق قسم النتائج */
 #results {
     margin-top: 20px;
     padding: 10px;
@@ -115,9 +102,13 @@ button:hover {
             <button id="search-button">بحث</button>
         
             <div id="results"></div>
-            
+
             <div id="account-name" style="font-size: 24px; font-weight: bold; margin-top: 20px; text-align: center;"></div> <!-- إضافة مكان عرض اسم الحساب -->
-        
+            <div class="d-flex justify-content-center">
+                <button id="downloadPdf" class="btn btn-primary w-25">تحميل كـ PDF</button>
+
+            </div>
+
             <table id="schedule-table">
                 <thead>
                     <tr>
@@ -194,7 +185,12 @@ button:hover {
         <p>Ahmed Hany &copy; Copyright 2024</p>
     </footer>
     
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="./assets/js/script3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </body>
 </html>

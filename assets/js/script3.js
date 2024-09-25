@@ -20,9 +20,11 @@ document.getElementById('search-button').addEventListener('click', function() {
                 });
             });
 
-            // Search for the user based on the email and password
-            const user = data.find(person => person.user === email && person.pass === password);
-            console.log(user);
+            const hashedPassword = CryptoJS.SHA256(password).toString();
+            const user = data.find(person => person.user === email && person.pass === hashedPassword);
+            
+
+
             if (user) {
                 resultsDiv.innerHTML = `<p>بياناتك صحيحه   .</p>`;
                 accountNameDiv.innerHTML = ` مرحب سياده الدكتور : ${user.subject}`; // عرض اسم الحساب
@@ -67,3 +69,26 @@ const daysMap = {
 };
 
 
+
+
+
+document.getElementById('downloadPdf').addEventListener('click', function() {
+    const { jsPDF } = window.jspdf;  
+    const pdf = new jsPDF();
+  
+    const tableElement = document.getElementById('schedule-table'); 
+  
+    if (tableElement) {
+      html2canvas(tableElement).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');  
+        
+        pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);  
+        
+        pdf.save('table.pdf');  
+      });
+    } else {
+      console.error('العنصر غير موجود: تحقق من الـ ID الخاص بالجدول');
+    }
+  });
+  
+  
